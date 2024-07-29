@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-style: italic;
+  color: rgb(74, 124, 74);
+  width: 700px;
+  padding: 80px;
+  margin: auto;
+  margin-top: 100px;
+  background-color: rgb(179, 201, 179);
+  border: 1px solid rgb(210, 207, 207);
+  border-radius: 10px;
+  form {
+    padding: 40px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 50px;
+    border: 1px solid rgb(210, 207, 207);
+    border-radius: 10px;
+    background-color: rgb(222, 232, 222);
+    input {
+      border: 1px solid rgb(210, 207, 207);
+      border-radius: 10px;
+      width: 300px;
+      padding: 20px;
+      margin: 10px;
+      &::placeholder {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        font-style: italic;
+        color: rgb(74, 124, 74);
+        opacity: 0.5;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    button {
+      cursor: pointer;
+      display: block;
+      margin: auto;
+      padding: 10px;
+      width: 100px;
+      border-radius: 10px;
+      border: 1px solid rgb(210, 207, 207);
+      background-color: white;
+      color: rgb(74, 124, 74);
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    button {
+      cursor: pointer;
+      padding: 10px;
+      width: 130px;
+      border-radius: 10px;
+      border: 1px solid rgb(210, 207, 207);
+      background-color: white;
+      color: rgb(74, 124, 74);
+    }
+  }
+  .back {
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    padding: 10px;
+    width: 130px;
+    border-radius: 10px;
+    border: 1px solid rgb(210, 207, 207);
+    background-color: white;
+    color: rgb(74, 124, 74);
+  }
+  .none {
+    display: none;
+  }
+}
