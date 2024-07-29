@@ -69,16 +69,17 @@ const dataUsers = () => {
 
       // 2 вариант поиска данных пользователя:
 
-      let i = 1;
+      let flag = false;
       arrUsers.forEach((item) => {
         if (
           enterLogin.value === item.login &&
           enterPassword.value === item.password
         ) {
           alert("Авторизация прошла успешно");
-        } else i++;
+          flag = true;
+        }
       });
-      if (i > arrUsers.length) {
+      if (!flag) {
         alert("Такого пользователя не существует");
       }
 
