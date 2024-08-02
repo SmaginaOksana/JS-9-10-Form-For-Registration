@@ -8,27 +8,32 @@
     "Lucida Sans", Arial, sans-serif;
   font-style: italic;
   color: rgb(74, 124, 74);
-  width: 700px;
   padding: 80px;
-  margin: auto;
-  margin-top: 100px;
-  background-color: rgb(179, 201, 179);
-  border: 1px solid rgb(210, 207, 207);
-  border-radius: 10px;
-  form {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(243, 246, 243);
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  form,
+  .userPage {
+    width: 450px;
     padding: 40px;
     text-align: center;
     margin: auto;
-    margin-bottom: 50px;
-    border: 1px solid rgb(210, 207, 207);
-    border-radius: 10px;
-    background-color: rgb(222, 232, 222);
+    border: 0.5px solid rgb(210, 207, 207);
+    box-shadow: 0 0 40px 0 rgb(0, 0, 0, 0.1), 0 0 40px 0 rgb(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: white;
     input {
-      border: 1px solid rgb(210, 207, 207);
-      border-radius: 10px;
-      width: 300px;
-      padding: 20px;
-      margin: 10px;
+      box-shadow: 0 0 5px 0 rgb(0, 0, 0, 0.1), 0 0 5px 0 rgb(0, 0, 0, 0.1);
+      border: 0.5px solid rgb(210, 207, 207);
+      border-radius: 5px;
+      width: 250px;
+      padding: 10px;
+      margin-bottom: 20px;
       &::placeholder {
         font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
           "Lucida Sans", Arial, sans-serif;
@@ -38,45 +43,62 @@
       }
       &:focus {
         outline: none;
+        transform: scale(1.1);
+        transition: 0.7s;
       }
     }
     button {
-      cursor: pointer;
       display: block;
       margin: auto;
-      padding: 10px;
       width: 100px;
-      border-radius: 10px;
-      border: 1px solid rgb(210, 207, 207);
-      background-color: white;
-      color: rgb(74, 124, 74);
+    }
+  }
+  .userPage {
+    span {
+      display: inline-block;
+      margin-bottom: 5px;
+      color: black;
+      opacity: 0.6;
+      font-style: normal;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    p {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 0.5px solid rgb(210, 207, 207);
+      border-radius: 5px;
+      text-align: left;
     }
   }
   .buttons {
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 50px;
     display: flex;
     justify-content: space-around;
-    button {
-      cursor: pointer;
-      padding: 10px;
-      width: 130px;
-      border-radius: 10px;
-      border: 1px solid rgb(210, 207, 207);
-      background-color: white;
-      color: rgb(74, 124, 74);
+    flex-wrap: wrap;
+    h2 {
+      width: 400px;
     }
-  }
-  .back {
-    display: block;
-    margin: auto;
-    cursor: pointer;
-    padding: 10px;
-    width: 130px;
-    border-radius: 10px;
-    border: 1px solid rgb(210, 207, 207);
-    background-color: white;
-    color: rgb(74, 124, 74);
+    button {
+      width: 130px;
+    }
   }
   .none {
     display: none;
+  }
+  button {
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0.5px solid rgb(210, 207, 207);
+    background-color: white;
+    color: rgb(74, 124, 74);
+    padding: 10px;
+    &:hover {
+      background-color: rgb(200, 219, 200);
+      color: white;
+    }
   }
 }

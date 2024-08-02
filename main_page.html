@@ -8,22 +8,37 @@
   </head>
   <body>
     <div class="container">
+      <div class="buttons">
+        <h2>Do you have an account?</h2>
+        <button class="btnRegist">SIGN UP</button
+        ><button class="btnAuth">LOG IN</button>
+      </div>
       <form action="#" name="registrationForm" class="none">
         <h2>Registration</h2>
         <input
           type="text"
-          placeholder="Create your login"
+          placeholder="FirstName"
+          name="firstname"
+          required
+        /><input type="text" placeholder="LastName" name="lastname" required />
+        <input type="text" placeholder="e-mail" name="e_mail" required />
+        <input type="text" placeholder="date of birth" name="birth" required />
+        <input
+          type="text"
+          placeholder="create your login"
           name="createLogin"
+          required
         /><input
           type="text"
-          placeholder="Create your password 
+          placeholder="create your password 
         "
           name="createPassword"
+          required
         />
-        <button class="confirmRegist">enter</button>
+        <button class="confirmRegist">SIGN UP</button>
       </form>
       <form action="#" name="authorizationForm" class="none">
-        <h2>Authorization</h2>
+        <h2>Log in</h2>
         <input
           type="text"
           placeholder="Enter your login"
@@ -34,14 +49,9 @@
           "
           name="enterPassword"
         />
-        <button class="confirmAuth">enter</button>
+        <button class="confirmAuth">LOG IN</button>
       </form>
-      <div class="buttons">
-        <button class="btnRegist">registration</button
-        ><button class="btnAuth">authorization</button>
-      </div>
-      <button class="back none">back</button>
     </div>
-    <script src="./script.js"></script>
+    <script src="./script_main_page.js"></script>
   </body>
 </html>

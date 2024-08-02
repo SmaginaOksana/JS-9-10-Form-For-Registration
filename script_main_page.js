@@ -1,32 +1,33 @@
-const container = document.querySelector(".container");
 const { registrationForm, authorizationForm } = document.forms;
-const { createLogin, createPassword } = registrationForm.elements;
-const { enterLogin, enterPassword } = authorizationForm.elements;
-const { confirmRegist } = registrationForm.elements;
-const { confirmAuth } = authorizationForm.elements;
+const {
+  createLogin,
+  createPassword,
+  firstname,
+  lastname,
+  e_mail,
+  birth,
+  confirmRegist,
+} = registrationForm.elements;
+const { enterLogin, enterPassword, confirmAuth } = authorizationForm.elements;
 const buttons = document.querySelector(".buttons");
 const btnRegist = document.querySelector(".btnRegist");
 const btnAuth = document.querySelector(".btnAuth");
-const back = document.querySelector(".back");
 
 const dataUsers = () => {
-  const arrUsers = [];
+  let arrUsers = [];
+
+  if (localStorage.user) {
+    arrUsers = JSON.parse(localStorage.getItem("user"));
+  }
+  console.log(arrUsers);
 
   btnRegist.addEventListener("click", () => {
-    back.classList.remove("none");
-    buttons.classList.add("none");
+    authorizationForm.classList.add("none");
     registration();
   });
   btnAuth.addEventListener("click", () => {
-    back.classList.remove("none");
-    buttons.classList.add("none");
-    authorization();
-  });
-  back.addEventListener("click", () => {
-    back.classList.add("none");
-    buttons.classList.remove("none");
     registrationForm.classList.add("none");
-    authorizationForm.classList.add("none");
+    authorization();
   });
 
   const registration = () => {
@@ -38,11 +39,17 @@ const dataUsers = () => {
         return;
       }
       const objUser = {
+        firstname: firstname.value,
+        lastname: lastname.value,
+        e_mail: e_mail.value,
+        dateOfBirth: birth.value,
         login: createLogin.value,
         password: createPassword.value,
+        id: generateId(),
       };
       arrUsers.push(objUser);
       registrationForm.reset();
+      localStorage.setItem("user", JSON.stringify(arrUsers));
     });
   };
 
@@ -50,22 +57,18 @@ const dataUsers = () => {
     authorizationForm.classList.remove("none");
     authorizationForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      if (enterLogin.value === "" || enterPassword.value === "") {
-        alert("Заполните все поля");
-        return;
-      }
 
       // 1 вариант поиска данных пользователя:
 
-      let user = arrUsers.find((item) => {
-        return (
-          item.login === enterLogin.value &&
-          item.password === enterPassword.value
-        );
-      });
-      if (user) {
-        alert("Авторизация прошла успешно");
-      } else alert("Такого пользователя не существует");
+      // let someone = arrUsers.find((item) => {
+      //   return (
+      //     item.login === enterLogin.value &&
+      //     item.password === enterPassword.value
+      //   );
+      // });
+      // if (someone) {
+      //   alert("Авторизация прошла успешно");
+      // } else alert("Такого пользователя не существует");
 
       // 2 вариант поиска данных пользователя:
 
@@ -77,6 +80,8 @@ const dataUsers = () => {
         ) {
           alert("Авторизация прошла успешно");
           flag = true;
+          localStorage.setItem("id", JSON.stringify(item.id));
+          window.location.href = "./user_page.html";
         }
       });
       if (!flag) {
@@ -86,6 +91,12 @@ const dataUsers = () => {
       authorizationForm.reset();
     });
   };
+
+  function generateId() {
+    const timestamp = new Date().getTime().toString(16);
+    const randomNum = Math.random().toString(16).slice(2, 8);
+    return `${timestamp}-${randomNum}`;
+  }
 };
 
 dataUsers();
